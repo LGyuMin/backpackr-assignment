@@ -1,28 +1,51 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <h1>Test</h1>
+        <TextForm :text-area-status="'input'" />
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TextForm from './components/TextForm.vue';
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+    name: 'App',
+    components: {
+        TextForm
+    }
 }
 </script>
 
 <style>
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard.css");
+
+/* 스타일 초기화 */
+*{margin: 0; padding: 0;}
+*, :after, :before { box-sizing: border-box; }
+button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+a { text-decoration: none; }
+textarea { resize: none; }
+div:focus,
+input:focus,
+button:active,
+button:focus,
+a:focus,
+a:active,
+textarea:focus {
+  outline: 1px solid #dcdcdc;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  max-width: 1200px;
+  min-width: 350px;
+  margin: 10px auto;
 }
 </style>
