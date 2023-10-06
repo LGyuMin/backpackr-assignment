@@ -1,12 +1,15 @@
 <template>
     <div class="textForm">
-        <div class="textareaWrapper">
-            <label for="exterTextArea"></label>
+        <div :class="['textareaWrapper', textAreaStatus]">
+            <label for="enterTextArea"></label>
             <textarea 
-                name="exterTextArea" 
-                id="exterTextArea"
+                name="enterTextArea"
+                id="enterTextArea"
+                title="텍스트 입력 영역"
+                v-model="copiedTextAreaValue"
                 :placeholder="textAreaValue ? textAreaValue : '내용을 입력하세요.'"
-                v-model="copiedTextareaValue"
+                :maxlength="maxLength"
+                :disabled="textAreaStatus == 'disabled' || textAreaStatus == 'readonly'"
             >
             </textarea>
             <span class="remainTextCount">{{ remainTextCount }}</span>
@@ -15,7 +18,7 @@
             v-if="textAreaStatus === 'input'" 
             type="submit" 
             class="saveBtn"
-            :disabled="(!textAreaValue && !copiedTextareaValue) || textAreaValue === copiedTextareaValue"
+            :disabled="(!textAreaValue && !copiedTextAreaValue) || textAreaValue === copiedTextAreaValue"
         >
             Save
         </button>
@@ -27,24 +30,31 @@ export default {
     props: {
         textAreaStatus: {
             validator (value) { 
-                return ['input', 'disable', 'readonly'].indexOf(value) !== -1
+                return ['input', 'disabled', 'readonly'].indexOf(value) !== -1
             }
+        },
+        maxLength: { 
+            type: Number, 
+            required: true,
+            validator(value) {
+                return value > 1
+            } 
         },
         textAreaValue: { type: String, required: false }
     },
     data() {
         return {
-            copiedTextareaValue: ''
+            copiedTextAreaValue: ''
         }
     },
     computed: {
         remainTextCount() {
-            return 500 - this.copiedTextareaValue.length
+            return this.maxLength - this.copiedTextAreaValue.length
         }
     },
     created() {
         if (this.textAreaValue) {
-            this.copiedTextareaValue = this.textAreaValue
+            this.copiedTextAreaValue = this.textAreaValue
         }
     }
 }
@@ -53,12 +63,15 @@ export default {
 <style scoped> 
 .textForm {
     display: flex;
-    gap: 10px;
 }
 .textareaWrapper {
     position: relative;
     display: flex;
     width: 100%;
+}
+
+.textareaWrapper.input {
+    width: calc(100% - 110px)
 }
 
 .textareaWrapper #exterTextArea {
@@ -72,16 +85,42 @@ export default {
     line-height: 19px;
 }
 
+.textareaWrapper.disabled #exterTextArea {
+    cursor: not-allowed;
+    color: #929292
+}
+.textareaWrapper.readonly #exterTextArea {
+    cursor: text;
+    color: #ff8282
+}
+
 .textareaWrapper .remainTextCount{
     position: absolute;
     bottom: 10px;
-    right: 10px;
-    font-size: 14px;
+    right: 15px;
+    font-size: 13px;
+    font-weight: bold;
 }
 
 .textForm .saveBtn {
     width: 100px;
-    border: 1px solid #dcdcdc;
+    margin-left: 10px;
+    background-color: #4478ff;
+    border: 1px solid #4478ff;
+    border-radius: 8px;
+    color: #fff;
+    transition: all .3s;
+}
+
+.textForm .saveBtn:hover {
+    background-color: #2659de;
+    border-color: #2659de
+}
+
+.textForm .saveBtn:disabled {
+    background-color: #a1bbff;
+    border-color: #a1bbff;
+    cursor: default;
 }
 
 </style>
