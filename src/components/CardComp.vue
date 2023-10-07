@@ -3,21 +3,22 @@
         <div class="cardImgWrapper">
             <img class="cardImg" :src="cardImageUrl" :alt="cardImageArt">
         </div>
+        
         <div class="cardInfo">
-            <div class="cardDesc">
-                <p class="cardDescLabel ellipsis">Card Label</p>
-                <p class="cardDescTitle ellipsis">Card Title</p>
-                <p class="cardDescDetail">
-                    <span class="cardDetailHighlight ellipsis">Highlight</span>
-                    <span class="cardDetailCrossOut ellipsis">cross out</span>
+            <div class="cardDesc" v-if="cardDescObj">
+                <p class="cardDescLabel ellipsis">{{ cardDescObj.label }}</p>
+                <p class="cardDescTitle ellipsis">{{ cardDescObj.title }}</p>
+                <p class="cardDescDetail ellipsis">
+                    <span class="cardDetailHighlight">{{ cardDescObj.highlight }}</span>
+                    <span class="cardDetailCrossOut">{{ cardDescObj.crossOut }}</span>
                 </p>
             </div>
 
-            <div class="rateWrapper">
+            <div class="rateWrapper" v-if="rate">
                 <div class="rateRow">
-                    <span class="rate active" v-for="i of 5" :key="i"></span>
+                    <span v-for="i of 5" :key="i" :class="{ rate: true, active: i <= rate }"></span>
                 </div>
-                <p class="rateDesc ellipsis">rate desc</p>
+                <p class="rateDesc ellipsis">{{ rateDesc }}</p>
             </div>
         </div>
     </div>
