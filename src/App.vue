@@ -2,6 +2,11 @@
     <div id="app">
         <h1>백패커 프론트엔드 개발자 포지션 과제</h1>
 
+        <div class="cardUi">
+            <CardComp :isHorizental="false" :card-image-url="sample_image" :cardImageArt="'샘플이미지'" />
+            <CardComp :isHorizental="true" :card-image-url="sample_image" :cardImageArt="'샘플이미지'" />
+        </div>
+
         <div class="inputFormUi">
             <h2>입력 폼 UI</h2>
             <TextForm :text-area-status="'input'" :max-length="500" />
@@ -13,18 +18,35 @@
 
 <script>
 import TextForm from './components/TextForm.vue';
+import CardComp from './components/CardComp.vue';
+
+import sample_image from './images/sample_image.png'
 
 export default {
     name: 'App',
     components: {
-        TextForm
+        TextForm,
+        CardComp
+    },
+    data() {
+        return {
+            sample_image: sample_image,
+        }
     }
 }
 </script>
 
 <style scoped>
-h1 {
+h1, h2 {
     margin-bottom: 20px;
+    text-align: center
+}
+
+.cardUi {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
 }
 
 .inputFormUi > * {
@@ -62,7 +84,6 @@ textarea:focus {
 #app {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
     color: #2c3e50;
     max-width: 1200px;
     min-width: 350px;
