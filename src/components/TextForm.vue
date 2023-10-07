@@ -74,7 +74,7 @@ export default {
     width: calc(100% - 110px)
 }
 
-.textareaWrapper #exterTextArea {
+.textareaWrapper textarea {
     width: 100%;
     height:100px;
     border: 1px solid #dcdcdc;
@@ -85,11 +85,11 @@ export default {
     line-height: 19px;
 }
 
-.textareaWrapper.disabled #exterTextArea {
+.textareaWrapper.disabled textarea {
     cursor: not-allowed;
     color: #929292
 }
-.textareaWrapper.readonly #exterTextArea {
+.textareaWrapper.readonly textarea {
     cursor: text;
     color: #ff8282
 }
