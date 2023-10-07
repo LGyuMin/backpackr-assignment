@@ -3,8 +3,32 @@
         <h1>백패커 프론트엔드 개발자 포지션 과제</h1>
 
         <div class="cardUi">
-            <CardComp :isHorizental="false" :card-image-url="sample_image" :cardImageArt="'샘플이미지'" />
-            <CardComp :isHorizental="true" :card-image-url="sample_image" :cardImageArt="'샘플이미지'" />
+            <h2>카드 UI</h2>
+            <div class="cardUiRow">
+                <CardComp
+                    v-for="(item, index) in cardTestData"
+                    :key="index"
+                    :is-horizental="false"
+                    :card-image-url="item.cardImageUrl"
+                    :card-image-art="item.cardImageArt"
+                    :card-desc-obj="item.cardDescObj"
+                    :rate="item.rate"
+                    :rate-desc="item.rateDesc"
+                />
+            </div>
+
+            <div class="cardUiRow">
+                <CardComp
+                    v-for="(item, index) in cardTestData"
+                    :key="index"
+                    :is-horizental="true"
+                    :card-image-url="item.cardImageUrl"
+                    :card-image-art="item.cardImageArt"
+                    :card-desc-obj="item.cardDescObj"
+                    :rate="item.rate"
+                    :rate-desc="item.rateDesc"
+                />
+            </div>
         </div>
 
         <div class="inputFormUi">
@@ -20,7 +44,7 @@
 import TextForm from './components/TextForm.vue';
 import CardComp from './components/CardComp.vue';
 
-import sample_image from './images/sample_image.png'
+import card_test_data from './test_data';
 
 export default {
     name: 'App',
@@ -30,7 +54,7 @@ export default {
     },
     data() {
         return {
-            sample_image: sample_image,
+            cardTestData: card_test_data
         }
     }
 }
@@ -44,9 +68,13 @@ h1, h2 {
 
 .cardUi {
     margin-bottom: 20px;
+}
+
+.cardUi .cardUiRow {
     display: flex;
     align-items: flex-start;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .inputFormUi > * {
