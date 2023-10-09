@@ -31,7 +31,8 @@ const card_test_data = [
     },
     {
         cardImageUrl: sample_image,
-        cardImageArt: '샘플 이미지'
+        cardImageArt: '샘플 이미지',
+        rate: 4,
     },
 ]
 
