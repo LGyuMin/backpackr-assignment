@@ -3,7 +3,7 @@
         <div class="cardImgWrapper">
             <img class="cardImg" :src="cardImageUrl" :alt="cardImageArt">
         </div>
-        
+
         <div class="cardInfo">
             <div class="cardDesc" v-if="cardDescObj">
                 <p class="cardDescLabel ellipsis">{{ cardDescObj.label }}</p>
@@ -56,6 +56,7 @@ export default {
     display: flex;
     flex-direction: column;
     min-width: 20%;
+    max-width: 25%;
     border: 1px solid #ddd;
 }
 
@@ -140,7 +141,7 @@ export default {
 /* 가로 스타일 */
 .card.horizental {
     flex-direction: row;
-    min-width: 40%;
+    min-width: 47%;
 }
 
 .card.horizental .cardImgWrapper {
