@@ -17,7 +17,7 @@
                 />
             </div>
 
-            <div class="cardUiRow">
+            <div class="cardUiRow cardHorizentalRow">
                 <CardComp
                     v-for="(item, index) in cardTestData"
                     :key="index"
@@ -73,8 +73,13 @@ h1, h2 {
 .cardUi .cardUiRow {
     display: flex;
     align-items: flex-start;
-    gap: 10px;
+    justify-content: space-between;
     flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.cardUi .cardUiRow.cardHorizentalRow > div {
+    margin-bottom: 20px;
 }
 
 .inputFormUi > * {
@@ -97,6 +102,7 @@ button {
     border: 0;
     cursor: pointer;
 }
+img { border: 0; }
 a { text-decoration: none; }
 textarea { resize: none; }
 div:focus,
