@@ -1,10 +1,10 @@
 <template>
     <div class="textForm">
         <div :class="['textareaWrapper', textAreaStatus]">
-            <label for="enterTextArea"></label>
+            <label :for="'enterTextArea_'+textAreaStatus"></label>
             <textarea 
-                name="enterTextArea"
-                id="enterTextArea"
+                :name="'enterTextArea_'+textAreaStatus"
+                :id="'enterTextArea_'+textAreaStatus"
                 title="텍스트 입력 영역"
                 v-model="copiedTextAreaValue"
                 :placeholder="textAreaValue ? textAreaValue : '내용을 입력하세요.'"
@@ -78,12 +78,16 @@ export default {
     width: 100%;
     height:100px;
     border: 1px solid #dcdcdc;
-    overflow-y: overlay;
     font-size: 16px;
     font-weight: 500;
     color: #222;
-    line-height: 19px;
+    line-height: 1.2;
+    padding: 5px;
 }
+
+textarea::placeholder {color:#828482;}
+textarea::-webkit-input-placeholder {color:#828482;}
+textarea::-ms-input-placeholder {color:#828482;}
 
 .textareaWrapper.disabled textarea {
     cursor: not-allowed;
