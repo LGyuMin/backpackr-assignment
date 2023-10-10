@@ -55,7 +55,7 @@ export default {
 .card {
     display: flex;
     flex-direction: column;
-    min-width: 20%;
+    min-width: 24%;
     max-width: 25%;
     border: 1px solid #ddd;
 }
@@ -141,7 +141,8 @@ export default {
 /* 가로 스타일 */
 .card.horizental {
     flex-direction: row;
-    min-width: 47%;
+    min-width: 49%;
+    max-width: 49%;
 }
 
 .card.horizental .cardImgWrapper {
@@ -177,5 +178,13 @@ export default {
     white-space: nowrap;
     text-overflow: ellipsis;
     word-break: break-all;
+}
+
+/* 반응형 */
+@media (max-width: 770px) {
+    .card, .card.horizental { 
+        min-width: 100%;
+        max-width: 100%;
+    }
 }
 </style>
