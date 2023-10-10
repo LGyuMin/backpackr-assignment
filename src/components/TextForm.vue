@@ -101,7 +101,7 @@ textarea::-ms-input-placeholder {color:#828482;}
 .textareaWrapper .remainTextCount{
     position: absolute;
     bottom: 10px;
-    right: 15px;
+    right: 20px;
     font-size: 13px;
     font-weight: bold;
     color: #999
