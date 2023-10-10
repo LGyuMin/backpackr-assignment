@@ -112,12 +112,7 @@ button {
 img { border: 0; }
 a { text-decoration: none; }
 textarea { resize: none; }
-div:focus,
-input:focus,
-button:active,
-button:focus,
-a:focus,
-a:active,
+
 textarea:focus {
     outline: 1px solid #dcdcdc;
 }
