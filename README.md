@@ -1,24 +1,16 @@
-# my-vue-app
+# Backpackr 프론트엔드 개발자 포지션 과제
 
-## Project setup
+## 프로젝트 세팅
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+## 실행
+- 개발 모드
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
+- 배포
 ```
 npm run build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
