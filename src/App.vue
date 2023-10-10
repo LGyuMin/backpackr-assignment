@@ -62,7 +62,7 @@ export default {
 
 <style scoped>
 h1, h2 {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     text-align: center
 }
 
@@ -79,11 +79,18 @@ h1, h2 {
 }
 
 .cardUi .cardUiRow.cardHorizentalRow > div {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .inputFormUi > * {
     margin-bottom: 15px;
+}
+
+/* 반응형 */
+@media (max-width: 770px) {
+    .cardUi .cardUiRow > div {
+        margin-bottom: 30px;
+    }
 }
 </style>
 
@@ -124,5 +131,6 @@ textarea:focus {
     margin: 10px auto;
     display: flex;
     flex-direction: column;
+    font-family: 'Pretendard', sans-serif;
 }
 </style>
